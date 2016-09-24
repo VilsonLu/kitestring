@@ -32,7 +32,6 @@ public class MainActivity extends BaseActivity implements DataListPresenter.Scre
     @AfterViews
     public void afterViews(){
         setupTabIcons();
-
     }
     private void setupTabIcons() {
 //        tabLayout.getTabAt(0).setIcon(tabIcons[0]);

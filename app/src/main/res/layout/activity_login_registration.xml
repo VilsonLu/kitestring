@@ -49,6 +49,7 @@
             android:padding="8dp"
             android:gravity="center_horizontal"
             android:background="?selectableItemBackground"
+            android:clickable="true"
             android:text="Already have an account?"/>
 
     </LinearLayout>

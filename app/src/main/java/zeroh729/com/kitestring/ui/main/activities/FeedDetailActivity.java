@@ -11,12 +11,15 @@ import android.widget.TextView;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EActivity;
+import org.androidannotations.annotations.Extra;
 import org.androidannotations.annotations.ViewById;
 
 import zeroh729.com.kitestring.R;
+import zeroh729.com.kitestring.data.model.Feed;
+import zeroh729.com.kitestring.ui.base.BaseActivity;
 
 @EActivity(R.layout.activity_newsdetails)
-public class FeedDetailActivity extends Activity{
+public class FeedDetailActivity extends BaseActivity {
     @ViewById(R.id.toolbar)
     Toolbar toolbar;
 
@@ -37,6 +40,9 @@ public class FeedDetailActivity extends Activity{
 
     @ViewById(R.id.btn_send)
     Button btn_send;
+
+    @Extra("feed")
+    Feed feed;
 
     @AfterViews
     public void afterviews(){

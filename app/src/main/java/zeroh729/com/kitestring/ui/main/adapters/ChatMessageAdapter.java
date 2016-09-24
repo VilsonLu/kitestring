@@ -10,23 +10,23 @@ import zeroh729.com.kitestring.data.model.Message;
 import zeroh729.com.kitestring.ui.base.BaseAdapterRecyclerView;
 import zeroh729.com.kitestring.ui.base.ViewWrapper;
 import zeroh729.com.kitestring.ui.main.views.viewholders.ChatItemRow;
-import zeroh729.com.kitestring.ui.main.views.viewholders.ChatItemRow_;
+import zeroh729.com.kitestring.ui.main.views.viewholders.ChatMessageRow;
+import zeroh729.com.kitestring.ui.main.views.viewholders.ChatMessageRow_;
 
 @EBean
-public class ChatItemAdapter extends BaseAdapterRecyclerView<Message, ChatItemRow>{
+public class ChatMessageAdapter  extends BaseAdapterRecyclerView<Message, ChatMessageRow> {
     @RootContext
     Context context;
 
     @Override
-    protected ChatItemRow onCreateItemView(ViewGroup parent, int viewType) {
-        return ChatItemRow_.build(context);
+    protected ChatMessageRow onCreateItemView(ViewGroup parent, int viewType) {
+        return ChatMessageRow_.build(context);
     }
 
     @Override
-    public void onBindViewHolder(ViewWrapper<ChatItemRow> holder, int position) {
-        ChatItemRow view = holder.getView();
+    public void onBindViewHolder(ViewWrapper<ChatMessageRow> holder, int position) {
+        ChatMessageRow view = holder.getView();
         Message message = items.get(position);
-
         view.bind(message);
     }
 }

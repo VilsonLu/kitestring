@@ -12,5 +12,12 @@
         tools:listitem="@layout/row_feeds"
         android:layout_above="@+id/et_message"/>
 
+    <com.melnykov.fab.FloatingActionButton
+        android:id="@+id/btn_add"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="16dp" />
 
 </RelativeLayout>

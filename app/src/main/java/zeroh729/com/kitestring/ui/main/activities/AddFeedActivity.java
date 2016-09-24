@@ -11,9 +11,10 @@ import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
 
 import zeroh729.com.kitestring.R;
+import zeroh729.com.kitestring.ui.base.BaseActivity;
 
 @EActivity(R.layout.activity_add_feed)
-public class AddFeedActivity extends Activity{
+public class AddFeedActivity extends BaseActivity {
     @ViewById(R.id.et_content)
     EditText et_content;
 

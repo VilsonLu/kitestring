@@ -11,9 +11,10 @@ import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
 
 import zeroh729.com.kitestring.R;
+import zeroh729.com.kitestring.ui.base.BaseActivity;
 
 @EActivity(R.layout.activity_login_registration)
-public class LoginActivity extends Activity {
+public class LoginActivity extends BaseActivity {
     @ViewById(R.id.iv_logo)
     ImageView iv_logo;
 
