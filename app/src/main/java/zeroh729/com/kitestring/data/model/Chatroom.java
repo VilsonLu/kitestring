@@ -3,19 +3,36 @@ package zeroh729.com.kitestring.data.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Chatroom implements Parcelable{
     private String id;
     private String friendId;
     private String topic;
-    private String[] characteristics;
+    private ArrayList<String> characteristics;
+
+    public Chatroom() {
+    }
 
     protected Chatroom(Parcel in) {
         id = in.readString();
         friendId = in.readString();
         topic = in.readString();
-        characteristics = in.createStringArray();
+        characteristics = in.createStringArrayList();
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(id);
+        dest.writeString(friendId);
+        dest.writeString(topic);
+        dest.writeStringList(characteristics);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
     }
 
     public static final Creator<Chatroom> CREATOR = new Creator<Chatroom>() {
@@ -54,24 +71,11 @@ public class Chatroom implements Parcelable{
         this.topic = topic;
     }
 
-    public String[] getCharacteristics() {
+    public ArrayList<String> getCharacteristics() {
         return characteristics;
     }
 
-    public void setCharacteristics(String[] characteristics) {
+    public void setCharacteristics(ArrayList<String> characteristics) {
         this.characteristics = characteristics;
-    }
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(id);
-        dest.writeString(friendId);
-        dest.writeString(topic);
-        dest.writeStringArray(characteristics);
     }
 }

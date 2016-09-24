@@ -6,6 +6,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -27,7 +28,6 @@ import zeroh729.com.kitestring.R;
 import zeroh729.com.kitestring.data.model.Chatroom;
 import zeroh729.com.kitestring.data.model.Message;
 import zeroh729.com.kitestring.ui.main.adapters.ChatMessageAdapter;
-import zeroh729.com.kitestring.ui.main.views.viewholders.ChatMessageRow;
 
 @EActivity(R.layout.activity_chat)
 public class ChatActivity extends Activity{
@@ -35,6 +35,9 @@ public class ChatActivity extends Activity{
 
     @ViewById(R.id.toolbar)
     Toolbar toolbar;
+
+    @ViewById(R.id.tv_question)
+    TextView tv_question;
 
     @ViewById(R.id.rv_feeds)
     RecyclerView rv_feeds;
@@ -56,6 +59,8 @@ public class ChatActivity extends Activity{
     @AfterViews
     public void afterviews(){
         ref = FirebaseDatabase.getInstance().getReference().child(Constants.CHILD_CHATS).child(chatroom.getId()).child(Constants.CHILD_MESSAGES);
+
+        tv_question.setText(chatroom.getTopic());
 
         btn_send.setOnClickListener(new View.OnClickListener() {
             @Override
