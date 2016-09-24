@@ -43,7 +43,8 @@
         android:id="@+id/sp_race"
         android:layout_width="match_parent"
         android:layout_height="@dimen/height_field"
-        android:padding="@dimen/padding_content"/>
+        android:padding="@dimen/padding_content"
+        android:entries="@array/race"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -55,7 +56,8 @@
         android:id="@+id/sp_sex"
         android:layout_width="match_parent"
         android:layout_height="@dimen/height_field"
-        android:padding="@dimen/padding_content"/>
+        android:padding="@dimen/padding_content"
+        android:entries="@array/sex"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -79,7 +81,8 @@
         android:id="@+id/sp_nationality"
         android:layout_width="match_parent"
         android:layout_height="@dimen/height_field"
-        android:padding="@dimen/padding_content"/>
+        android:padding="@dimen/padding_content"
+        android:entries="@array/nationality"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -91,7 +94,8 @@
         android:id="@+id/sp_religion"
         android:layout_width="match_parent"
         android:layout_height="@dimen/height_field"
-        android:padding="@dimen/padding_content"/>
+        android:padding="@dimen/padding_content"
+        android:entries="@array/religion"/>
 
     <com.melnykov.fab.FloatingActionButton
         android:id="@+id/btn_done"

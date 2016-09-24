@@ -10,6 +10,9 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -19,6 +22,7 @@ import org.androidannotations.annotations.ViewById;
 
 import zeroh729.com.kitestring.R;
 import zeroh729.com.kitestring.ui.base.BaseActivity;
+import zeroh729.com.kitestring.utils._;
 
 @EActivity(R.layout.activity_login_registration)
 public class LoginActivity extends BaseActivity {
@@ -37,7 +41,7 @@ public class LoginActivity extends BaseActivity {
     @ViewById(R.id.tv_switch)
     TextView tv_switch;
 
-    Boolean isLogin = true;
+    Boolean isLogin = false;
     FirebaseAuth.AuthStateListener mAuthListener;
     FirebaseAuth mAuth;
 
@@ -72,7 +76,10 @@ public class LoginActivity extends BaseActivity {
     @Override
     protected void onStop() {
         super.onStop();
-        mAuth.addAuthStateListener(mAuthListener);
+        if(mAuthListener != null){
+            mAuth.removeAuthStateListener(mAuthListener);
+        }
+
     }
 
     @AfterViews
@@ -108,11 +115,50 @@ public class LoginActivity extends BaseActivity {
 
     }
 
+
+    private Boolean isFieldEmpty(String username, String password){
+        if(username.isEmpty() || password.isEmpty()){
+            return true;
+        }
+
+        return false;
+    }
+
     public void loginUser(){
-        mAuth.signInWithEmailAndPassword(et_email.getText().toString(), et_password.getText().toString());
+
+        String username = et_email.getText().toString();
+        String password = et_password.getText().toString();
+
+
+        if(isFieldEmpty(username, password)){
+            _.showToast("Username/Password cannot be empty");
+            return;
+        }
+
+        mAuth.signInWithEmailAndPassword(et_email.getText().toString(), et_password.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                _.showToast(task.isSuccessful() + "");
+            }
+        });
     }
 
     public void registerUser(){
-        mAuth.createUserWithEmailAndPassword(et_email.getText().toString(), et_password.getText().toString());
+
+        String username = et_email.getText().toString();
+        String password = et_password.getText().toString();
+
+        if(isFieldEmpty(username, password)){
+            _.showToast("Username/Password cannot be empty");
+            return;
+        }
+
+        mAuth.createUserWithEmailAndPassword(et_email.getText().toString(), et_password.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                _.showToast(task.isSuccessful() + "");
+            }
+
+        });
     }
 }

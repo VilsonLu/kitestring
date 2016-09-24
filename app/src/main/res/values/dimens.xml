@@ -7,7 +7,7 @@
     <dimen name="margin_message">6dp</dimen>
     <dimen name="size_profile_pic">50dp</dimen>
     <dimen name="size_fab">60dp</dimen>
-    <dimen name="height_field">36dp</dimen>
+    <dimen name="height_field">42dp</dimen>
 
 
     <!-- Default colors and dimens per md Design guidelines (Last update: May 2016 release) -->
