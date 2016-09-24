@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/margin_row"
+    android:background="?selectableItemBackground">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/iv_profilepic"
+        android:layout_width="@dimen/size_profile_pic"
+        android:layout_height="@dimen/size_profile_pic"
+        android:src="#ef3d3d"/>
+
+    <TextView
+        android:id="@+id/tv_profilepic"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="J"
+        android:layout_alignRight="@id/iv_profilepic"
+        android:layout_alignLeft="@id/iv_profilepic"
+        android:layout_alignTop="@id/iv_profilepic"
+        android:layout_alignBottom="@id/iv_profilepic"
+        android:textSize="22sp"
+        android:gravity="center"
+        android:textColor="#fff"/>
+
+    <TextView
+        android:id="@+id/tv_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/tv_profilepic"
+        android:layout_below="@id/tv_username"
+        android:layout_marginLeft="@dimen/margin_left_content"
+        style="@style/TextAppearance.AppCompat.Body1"
+        android:text="Jonathan"/>
+
+    <TextView
+        android:id="@+id/tv_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/tv_profilepic"
+        android:layout_below="@id/tv_username"
+        android:layout_marginLeft="@dimen/margin_left_content"
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:text="What's up"/>
+
+</RelativeLayout>

@@ -1,4 +1,15 @@
 <resources>
+    <dimen name="padding_content">6dp</dimen>
+    <dimen name="padding_message">12dp</dimen>
+    <dimen name="margin_row">12dp</dimen>
+    <dimen name="margin_left_content">12dp</dimen>
+    <dimen name="margin_top_reg">12dp</dimen>
+    <dimen name="margin_message">6dp</dimen>
+    <dimen name="size_profile_pic">50dp</dimen>
+    <dimen name="size_fab">60dp</dimen>
+    <dimen name="height_field">36dp</dimen>
+
+
     <!-- Default colors and dimens per md Design guidelines (Last update: May 2016 release) -->
     <!-- Layout -->
     <!-- Metrics & Keylines -->

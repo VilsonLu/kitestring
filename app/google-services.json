@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "1094803516512",
+    "firebase_url": "https://kitestring-4de73.firebaseio.com",
+    "project_id": "kitestring-4de73",
+    "storage_bucket": "kitestring-4de73.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1094803516512:android:9f34df59ef672e18",
+        "android_client_info": {
+          "package_name": "zeroh729.com.kitestring"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1094803516512-t8hj0g317oncjm6bq4i1hbrv84nodhik.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBeMXBocxenHH3LclUiJVQ_jOWLuNQ8HJQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/parent_view"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/margin_message"
+    android:layout_gravity="left"
+    android:padding="@dimen/padding_message"
+    android:background="@drawable/bg_chat_other"
+    android:elevation="0dp">
+
+        <TextView
+            android:id="@+id/tv_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/tv_profilepic"
+            android:layout_below="@id/tv_username"
+            style="@style/TextAppearance.AppCompat.Body1"
+            android:text="I like you"/>
+
+</LinearLayout>

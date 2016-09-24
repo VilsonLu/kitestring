@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'android-apt'
+apply plugin: 'com.google.gms.google-services'
 def AAVersion = '4.0.0'
 
 android {
@@ -15,7 +16,7 @@ android {
 
     defaultConfig {
         multiDexEnabled true
-        applicationId "android.whitewidget.com.boilerplateandroid"
+        applicationId "zeroh729.com.kitestring"
         minSdkVersion 19
         targetSdkVersion 23
         versionCode 1
@@ -47,7 +48,10 @@ dependencies {
     compile "com.squareup.retrofit2:retrofit:$RETROFIT_VERSION"
     compile "com.squareup.retrofit2:converter-gson:$RETROFIT_VERSION"
     compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'com.melnykov:floatingactionbutton:1.3.0'
     compile 'com.squareup:otto:1.3.8'
+    compile 'com.google.firebase:firebase-auth:9.0.0'
+    compile 'com.google.firebase:firebase-database:9.0.0'
 
     testCompile "junit:junit:4.12"
     testCompile "org.mockito:mockito-all:1.10.19"
