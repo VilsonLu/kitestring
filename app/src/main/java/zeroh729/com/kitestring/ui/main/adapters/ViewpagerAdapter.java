@@ -5,7 +5,9 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import zeroh729.com.kitestring.ui.main.fragments.ChatFragment;
+import zeroh729.com.kitestring.ui.main.fragments.ChatFragment_;
 import zeroh729.com.kitestring.ui.main.fragments.FeedDetailsFragment;
+import zeroh729.com.kitestring.ui.main.fragments.FeedDetailsFragment_;
 
 public class ViewpagerAdapter extends FragmentPagerAdapter{
     ChatFragment chatFragment;
@@ -17,12 +19,21 @@ public class ViewpagerAdapter extends FragmentPagerAdapter{
 
     @Override
     public Fragment getItem(int position) {
-
-        return null;
+        if(chatFragment == null)
+            chatFragment = ChatFragment_.builder().build();
+        if(feedDetailsFragment == null)
+            feedDetailsFragment = FeedDetailsFragment_.builder().build();
+        switch(position){
+            case 0:
+                return chatFragment;
+            case 1:
+            default:
+                return feedDetailsFragment;
+        }
     }
 
     @Override
     public int getCount() {
-        return 0;
+        return 2;
     }
 }

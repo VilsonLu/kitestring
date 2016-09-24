@@ -20,6 +20,10 @@ public abstract class BaseAdapterRecyclerView<T, V extends View> extends Recycle
         return items;
     }
 
+    public void setItems(List<T> items) {
+        this.items = items;
+    }
+
     protected ClickListener listener;
 
     public void setListener(ClickListener listener) {

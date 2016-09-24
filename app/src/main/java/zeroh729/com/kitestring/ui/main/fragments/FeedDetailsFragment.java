@@ -5,6 +5,8 @@ import android.support.v7.widget.RecyclerView;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.melnykov.fab.FloatingActionButton;
+
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EFragment;
 import org.androidannotations.annotations.ViewById;
@@ -17,7 +19,7 @@ public class FeedDetailsFragment extends Fragment {
     RecyclerView rv_feeds;
 
     @ViewById(R.id.btn_add)
-    Button btn_add;
+    FloatingActionButton btn_add;
 
     @AfterViews
     public void afterviews(){

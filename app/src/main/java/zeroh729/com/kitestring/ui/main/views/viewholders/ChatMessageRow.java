@@ -37,8 +37,12 @@ public class ChatMessageRow extends LinearLayout{
 
     public void bind(Message message){
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.FILL_PARENT);
+        String userId = "0";
 
-        if(message.getId().equals(FirebaseAuth.getInstance().getCurrentUser().getUid())){
+        if(FirebaseAuth.getInstance().getCurrentUser() != null)
+         userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+        if(message.getId().equals(userId)){
             params.gravity = Gravity.RIGHT;
             parent_view.setBackgroundResource(R.drawable.bg_chat_user);
         }else{
