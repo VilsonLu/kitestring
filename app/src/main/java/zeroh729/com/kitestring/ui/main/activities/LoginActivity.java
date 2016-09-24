@@ -41,7 +41,7 @@ public class LoginActivity extends BaseActivity {
     @ViewById(R.id.tv_switch)
     TextView tv_switch;
 
-    Boolean isLogin = false;
+    Boolean isLogin = true;
     FirebaseAuth.AuthStateListener mAuthListener;
     FirebaseAuth mAuth;
 
