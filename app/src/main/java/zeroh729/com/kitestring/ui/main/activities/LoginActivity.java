@@ -3,6 +3,7 @@ package zeroh729.com.kitestring.ui.main.activities;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -49,7 +50,12 @@ public class LoginActivity extends BaseActivity {
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 if(user != null){
-                    LoginActivity_.intent(LoginActivity.this).start();
+                    if(isLogin){
+                        MainActivity_.intent(LoginActivity.this).start();
+                    } else {
+                        RegistrationFormActivity_.intent(LoginActivity.this).start();
+                    }
+
                 } else {
 
                 }
@@ -78,9 +84,11 @@ public class LoginActivity extends BaseActivity {
                 if(isLogin){
                     isLogin = false;
                     btn_login_register.setText("Register");
+                    tv_switch.setText("Already have an account?");
                 } else {
                     isLogin = true;
                     btn_login_register.setText("Login");
+                    tv_switch.setText("Don't have an account yet?");
                 }
 
             }

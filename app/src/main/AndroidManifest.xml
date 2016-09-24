@@ -28,6 +28,8 @@
 
         <activity android:name=".ui.main.activities.FeedDetailActivity_"></activity>
 
+        <activity android:name=".ui.main.activities.RegistrationFormActivity_"></activity>
+
         <receiver android:name="zeroh729.com.kitestring.utils.receivers.NetworkChangeReceiver_" >
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
