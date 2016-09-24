@@ -1,107 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="32dp">
+    <LinearLayout
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="32dp">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hi, we'd like to know you more."/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hi, we'd like to know you more."/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="Name:"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="Name:"/>
 
-    <EditText
-        android:id="@+id/et_name"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/height_field"
-        android:padding="@dimen/padding_content"/>
+        <EditText
+            android:id="@+id/et_name"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_field"
+            android:padding="@dimen/padding_content"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_top_reg"
-        android:text="Age:"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_top_reg"
+            android:text="Age:"/>
 
-    <EditText
-        android:id="@+id/et_age"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/height_field"
-        android:padding="@dimen/padding_content"/>
+        <EditText
+            android:id="@+id/et_age"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_field"
+            android:padding="@dimen/padding_content"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_top_reg"
-        android:text="Race"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_top_reg"
+            android:text="Race"/>
 
-    <Spinner
-        android:id="@+id/sp_race"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/height_field"
-        android:padding="@dimen/padding_content"
-        android:entries="@array/race"/>
+        <Spinner
+            android:id="@+id/sp_race"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_field"
+            android:padding="@dimen/padding_content"
+            android:entries="@array/race"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_top_reg"
-        android:text="Sex"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_top_reg"
+            android:text="Sex"/>
 
-    <Spinner
-        android:id="@+id/sp_sex"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/height_field"
-        android:padding="@dimen/padding_content"
-        android:entries="@array/sex"/>
+        <Spinner
+            android:id="@+id/sp_sex"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_field"
+            android:padding="@dimen/padding_content"
+            android:entries="@array/sex"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_top_reg"
-        android:text="Sexuality"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_top_reg"
+            android:text="Sexuality"/>
 
-    <Spinner
-        android:id="@+id/sp_sexuality"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/height_field"
-        android:padding="@dimen/padding_content"/>
+        <Spinner
+            android:id="@+id/sp_sexuality"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_field"
+            android:padding="@dimen/padding_content"
+            android:entries="@array/sexuality"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_top_reg"
-        android:text="Nationality"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_top_reg"
+            android:text="Nationality"/>
 
-    <Spinner
-        android:id="@+id/sp_nationality"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/height_field"
-        android:padding="@dimen/padding_content"
-        android:entries="@array/nationality"/>
+        <Spinner
+            android:id="@+id/sp_nationality"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_field"
+            android:padding="@dimen/padding_content"
+            android:entries="@array/nationality"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_top_reg"
-        android:text="Religion"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_top_reg"
+            android:text="Religion"/>
 
-    <Spinner
-        android:id="@+id/sp_religion"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/height_field"
-        android:padding="@dimen/padding_content"
-        android:entries="@array/religion"/>
+        <Spinner
+            android:id="@+id/sp_religion"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_field"
+            android:padding="@dimen/padding_content"
+            android:entries="@array/religion"/>
 
-    <com.melnykov.fab.FloatingActionButton
-        android:id="@+id/btn_done"
-        android:layout_width="@dimen/size_fab"
-        android:layout_height="@dimen/size_fab"
-        android:layout_margin="@dimen/margin_top_reg"
-        android:layout_gravity="center_horizontal"/>
+        <com.melnykov.fab.FloatingActionButton
+            android:id="@+id/btn_done"
+            android:layout_width="@dimen/size_fab"
+            android:layout_height="@dimen/size_fab"
+            android:layout_margin="@dimen/margin_top_reg"
+            android:layout_gravity="center_horizontal"/>
 
-</LinearLayout>
+    </LinearLayout>
+</ScrollView>

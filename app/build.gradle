@@ -80,6 +80,7 @@ repositories {
 
 
 dependencies {
+compile 'com.google.android.gms:play-services-appindexing:9.0.0'
 }
 
 apt {
