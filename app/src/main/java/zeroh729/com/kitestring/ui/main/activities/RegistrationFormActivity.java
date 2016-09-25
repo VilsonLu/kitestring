@@ -78,7 +78,7 @@ public class RegistrationFormActivity extends BaseActivity {
         HashMap<String, String> fields = new HashMap<>();
 
         fields.put(Constants.KEY_NAME, et_name.getText().toString());
-        fields.put(Constants.KEY_AGE, et_name.getText().toString());
+        fields.put(Constants.KEY_AGE, et_age.getText().toString());
         fields.put(Constants.KEY_NATIONALITY, sp_nationality.getSelectedItem().toString());
         fields.put(Constants.KEY_SEX, sp_sex.getSelectedItem().toString());
         fields.put(Constants.KEY_SEXUALITY, sp_sexuality.getSelectedItem().toString());

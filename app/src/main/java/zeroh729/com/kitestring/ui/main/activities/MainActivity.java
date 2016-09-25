@@ -12,7 +12,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import zeroh729.com.kitestring.Constants;
-import zeroh729.com.kitestring.KiteString;
 import zeroh729.com.kitestring.KiteString_;
 import zeroh729.com.kitestring.R;
 import zeroh729.com.kitestring.presenters.DataListPresenter;
@@ -37,12 +36,17 @@ public class MainActivity extends BaseActivity implements DataListPresenter.Scre
 
     ViewpagerAdapter adapter;
 
-    private int[] tabIcons;
-//    = {
-//            R.drawable.ic_tab_favourite,
-//            R.drawable.ic_tab_call,
-//            R.drawable.ic_tab_contacts
-//    };
+    private int[] tabIcons =
+    {
+            R.drawable.speech,
+            R.drawable.menu
+    };
+
+    private int[] coloredTabIcons =
+    {
+        R.drawable.speechfilled,
+        R.drawable.menufilled
+    };
 
     @AfterViews
     public void afterViews(){
@@ -64,11 +68,33 @@ public class MainActivity extends BaseActivity implements DataListPresenter.Scre
 
             }
         });
+
+        viewpager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                tabLayout.getTabAt(position).setIcon(coloredTabIcons[position]);
+                if(position == 0){
+                    tabLayout.getTabAt(1).setIcon(tabIcons[1]);
+                }else if(position == 1){
+                    tabLayout.getTabAt(0).setIcon(tabIcons[0]);
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
     }
 
     private void setupTabIcons() {
-//        tabLayout.getTabAt(0).setIcon(tabIcons[0]);
-//        tabLayout.getTabAt(1).setIcon(tabIcons[1]);
+        tabLayout.getTabAt(0).setIcon(tabIcons[0]);
+        tabLayout.getTabAt(1).setIcon(tabIcons[1]);
 //        tabLayout.getTabAt(2).setIcon(tabIcons[2]);
     }
 

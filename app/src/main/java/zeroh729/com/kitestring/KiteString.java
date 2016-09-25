@@ -16,6 +16,7 @@ public class KiteString extends Application{
     public void onCreate() {
         super.onCreate();
         context = getApplicationContext();
+        user = new User();
     }
 
     public Context getContext(){

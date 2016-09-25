@@ -4,10 +4,19 @@
     android:layout_height="match_parent">
 
     <EditText
-        android:id="@+id/et_content"
+        android:id="@+id/et_title"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:hint="Write a question"
+        android:padding="12dp"
+        android:gravity="top"/>
+
+    <EditText
+        android:id="@+id/et_description"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:hint="Write a question"
+        android:layout_marginTop="62dp"
         android:padding="12dp"
         android:gravity="top"/>
 
@@ -19,6 +28,7 @@
         android:layout_gravity="bottom"
         android:layout_margin="@dimen/padding_content"
         android:layout_alignParentBottom="true"
+        android:src="@drawable/newbutton"
         android:layout_centerHorizontal="true"/>
 
 </RelativeLayout>

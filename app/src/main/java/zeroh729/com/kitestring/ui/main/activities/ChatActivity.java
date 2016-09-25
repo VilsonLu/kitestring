@@ -89,7 +89,7 @@ public class ChatActivity extends BaseActivity{
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 HashMap map = (HashMap) dataSnapshot.getValue();
                 Message message = new Message();
-                message.setId(dataSnapshot.getKey());
+                message.setId((String)map.get(Constants.KEY_ID));
                 message.setScreenName((String)map.get(Constants.KEY_NAME));
                 message.setHex((String)map.get(Constants.KEY_HEX));
                 message.setMessage((String)map.get(Constants.KEY_MESSAGE));
