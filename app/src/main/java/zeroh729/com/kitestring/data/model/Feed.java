@@ -10,6 +10,9 @@ public class Feed implements Parcelable{
     private String imageUrl;
     private long timestamp;
 
+    public Feed() {
+    }
+
     protected Feed(Parcel in) {
         title = in.readString();
         blurb = in.readString();

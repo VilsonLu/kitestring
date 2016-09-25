@@ -1,12 +1,9 @@
 package zeroh729.com.kitestring.ui.main.activities;
 
-import android.support.annotation.NonNull;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -16,6 +13,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.melnykov.fab.FloatingActionButton;
 
 import org.androidannotations.annotations.AfterViews;
+import org.androidannotations.annotations.Background;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
 
@@ -28,7 +26,6 @@ import zeroh729.com.kitestring.R;
 import zeroh729.com.kitestring.data.model.Chatroom;
 import zeroh729.com.kitestring.data.model.User;
 import zeroh729.com.kitestring.ui.base.BaseActivity;
-import zeroh729.com.kitestring.utils._;
 
 @EActivity(R.layout.activity_chat_greetings)
 public class ChatGreetingActivity extends BaseActivity {
@@ -60,9 +57,9 @@ public class ChatGreetingActivity extends BaseActivity {
 
                 int i = 0;
 
-
                 for(DataSnapshot value : dataSnapshot.getChildren()){
-                    if(i == random){
+//                    if(i == random){
+                    if(value.getKey().equals("s0WTYQwctHhQYWyK1NsZ7ARaMyl1")){
                         HashMap map = (HashMap) value.getValue();
                         randomUser = new User();
                         randomUser.setId(value.getKey());
@@ -81,8 +78,29 @@ public class ChatGreetingActivity extends BaseActivity {
 
                 for(int j = 0; j < 3; j++){
                     int random1 = new Random().nextInt(attributes.length);
-                    if(!userAttrbs.contains(attributes[random1])){
-                        userAttrbs.add(attributes[random1]);
+                    String attr = "";
+                    switch (random1){
+                        case 0:
+                            attr = randomUser.getAge() + " yrs old";
+                            break;
+                        case 1:
+                            attr = randomUser.getNationality();
+                            break;
+                        case 2:
+                            attr = randomUser.getRace();
+                            break;
+                        case 3:
+                            attr = randomUser.getReligion();
+                            break;
+                        case 4:
+                            attr = randomUser.getSex();
+                            break;
+                        default:
+                            attr = randomUser.getSexuality();
+                            break;
+                    }
+                    if(!userAttrbs.contains(attr)){
+                        userAttrbs.add(attr);
                     }else{
                         j--;
                     }
@@ -100,49 +118,66 @@ public class ChatGreetingActivity extends BaseActivity {
         btn_done.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                completeCount = 0;
-                successCount = 0;
+//                completeCount = 0;
+//                successCount = 0;
+//
 
-                DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child(Constants.CHILD_CHATS).push();
-
-                FirebaseDatabase.getInstance().getReference().child(Constants.CHILD_USER).child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(Constants.KEY_CHATROOMS).child(ref.getKey()).setValue(true);
-                FirebaseDatabase.getInstance().getReference().child(Constants.CHILD_USER).child(randomUser.getId()).child(Constants.KEY_CHATROOMS).child(ref.getKey()).setValue(false);
-
+                ref = FirebaseDatabase.getInstance().getReference().child(Constants.CHILD_CHATS).push();
 
                 chatroom = new Chatroom();
                 chatroom.setId(ref.getKey());
-                chatroom.setFriendId(randomUser.getId());
+                chatroom.setFriendName(randomUser.getUsername());
                 chatroom.setCharacteristics(userAttrbs);
                 chatroom.setTopic(et_question.getText().toString());
+                saveInFirebase();
+                goToChatroom();
 
-                HashMap memberMap = new HashMap();
-                memberMap.put(FirebaseAuth.getInstance().getCurrentUser().getUid(), true);
-                memberMap.put(randomUser.getId(), false);
 
-                ref.child(Constants.CHILD_MEMBERS).setValue(memberMap).addOnCompleteListener(listener);
-
-                ref.child(Constants.KEY_CHARACTERISTICS).setValue(userAttrbs).addOnCompleteListener(listener);
-                ref.child(Constants.KEY_DESCRIPTION).setValue(et_question.getText().toString()).addOnCompleteListener(listener);
             }
         });
+
     }
 
+    DatabaseReference ref;
 
-    OnCompleteListener listener = new OnCompleteListener() {
-        @Override
-        public void onComplete(@NonNull Task task) {
-            completeCount++;
-            if(task.isSuccessful()){
-                successCount++;
-            }
+    @Background
+    public void saveInFirebase(){
+//        DatabaseReference userref = FirebaseDatabase.getInstance().getReference().child(Constants.CHILD_USER);
+//        userref.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(Constants.KEY_CHATROOMS).child(ref.getKey()).setValue(true);
+//        userref.child(randomUser.getId()).child(Constants.KEY_CHATROOMS).child(ref.getKey()).setValue(false);
 
-            if(completeCount == 3){
-                if(successCount == 3){
-                    ChatActivity_.intent(ChatGreetingActivity.this).extra("chatroom",chatroom).start();
-                }else{
-                    _.showToast("Something went wrong, please try again.");
-                }
-            }
-        }
-    };
+        DatabaseReference ref0 = ref.child(Constants.CHILD_MEMBERS);
+        DatabaseReference ref1 = ref.child(Constants.KEY_CHARACTERISTICS);
+        DatabaseReference ref2 = ref.child(Constants.KEY_DESCRIPTION);
+
+        HashMap memberMap = new HashMap();
+        memberMap.put(FirebaseAuth.getInstance().getCurrentUser().getUid(), true);
+        memberMap.put(randomUser.getId(), false);
+
+        ref2.setValue(et_question.getText().toString());
+        ref1.setValue(userAttrbs);//.addOnCompleteListener(listener);
+        ref0.setValue(memberMap);
+    }
+
+    private void goToChatroom(){
+        ChatActivity_.intent(this).extra("chatroom", chatroom).start();
+    }
+
+//
+//    OnCompleteListener listener = new OnCompleteListener() {
+//        @Override
+//        public void onComplete(@NonNull Task task) {
+//            completeCount++;
+//            if(task.isSuccessful()){
+//                successCount++;
+//            }
+//
+//            if(completeCount == 3){
+//                if(successCount == 3){
+//                }else{
+//                    _.showToast("Something went wrong, please try again.");
+//                }
+//            }
+//        }
+//    };
 }

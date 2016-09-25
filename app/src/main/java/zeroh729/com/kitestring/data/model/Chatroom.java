@@ -4,11 +4,10 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class Chatroom implements Parcelable{
     private String id;
-    private String friendId;
+    private String friendName;
     private String topic;
     private ArrayList<String> characteristics;
 
@@ -17,7 +16,7 @@ public class Chatroom implements Parcelable{
 
     protected Chatroom(Parcel in) {
         id = in.readString();
-        friendId = in.readString();
+        friendName = in.readString();
         topic = in.readString();
         characteristics = in.createStringArrayList();
     }
@@ -25,7 +24,7 @@ public class Chatroom implements Parcelable{
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(id);
-        dest.writeString(friendId);
+        dest.writeString(friendName);
         dest.writeString(topic);
         dest.writeStringList(characteristics);
     }
@@ -55,12 +54,12 @@ public class Chatroom implements Parcelable{
         this.id = id;
     }
 
-    public String getFriendId() {
-        return friendId;
+    public String getFriendName() {
+        return friendName;
     }
 
-    public void setFriendId(String friendId) {
-        this.friendId = friendId;
+    public void setFriendName(String friendName) {
+        this.friendName = friendName;
     }
 
     public String getTopic() {

@@ -36,7 +36,7 @@ public class ChatMessageRow extends LinearLayout{
     }
 
     public void bind(Message message){
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.FILL_PARENT);
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
         String userId = "0";
 
         if(FirebaseAuth.getInstance().getCurrentUser() != null)

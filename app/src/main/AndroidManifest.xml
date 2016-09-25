@@ -24,6 +24,8 @@
             android:label="Home">
         </activity>
 
+        <activity android:name=".ui.main.activities.ChatGreetingActivity_"></activity>
+
         <activity android:name=".ui.main.activities.AddFeedActivity_"></activity>
 
         <activity android:name=".ui.main.activities.FeedDetailActivity_"></activity>
@@ -31,7 +33,6 @@
         <activity android:name=".ui.main.activities.RegistrationFormActivity_"></activity>
 
         <activity android:name=".ui.main.activities.ChatActivity_"></activity>
-
 
         <receiver android:name="zeroh729.com.kitestring.utils.receivers.NetworkChangeReceiver_" >
             <intent-filter>

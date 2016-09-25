@@ -1,11 +1,15 @@
 package zeroh729.com.kitestring.ui.main.adapters;
 
 import android.content.Context;
+import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 
 import org.androidannotations.annotations.EBean;
 import org.androidannotations.annotations.RootContext;
 
+import zeroh729.com.kitestring.R;
 import zeroh729.com.kitestring.data.model.Feed;
 import zeroh729.com.kitestring.ui.base.BaseAdapterRecyclerView;
 import zeroh729.com.kitestring.ui.base.ViewWrapper;
@@ -34,5 +38,8 @@ public class FeedAdapter extends BaseAdapterRecyclerView<Feed, FeedRow>{
                 FeedDetailActivity_.intent(context).extra("feed", feed).start();
             }
         });
+        WindowManager windowManager = (WindowManager)context.getSystemService(Context.WINDOW_SERVICE);
+        int width = windowManager.getDefaultDisplay().getWidth();
+        view.setLayoutParams(new RecyclerView.LayoutParams(width, RecyclerView.LayoutParams.MATCH_PARENT));
     }
 }

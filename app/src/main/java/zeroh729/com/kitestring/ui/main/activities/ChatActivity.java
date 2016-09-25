@@ -1,8 +1,7 @@
 package zeroh729.com.kitestring.ui.main.activities;
 
-import android.app.Activity;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -27,14 +26,12 @@ import zeroh729.com.kitestring.Constants;
 import zeroh729.com.kitestring.R;
 import zeroh729.com.kitestring.data.model.Chatroom;
 import zeroh729.com.kitestring.data.model.Message;
+import zeroh729.com.kitestring.ui.base.BaseActivity;
 import zeroh729.com.kitestring.ui.main.adapters.ChatMessageAdapter;
 
 @EActivity(R.layout.activity_chat)
-public class ChatActivity extends Activity{
+public class ChatActivity extends BaseActivity{
     ArrayList<Message> messages = new ArrayList<>();
-
-    @ViewById(R.id.toolbar)
-    Toolbar toolbar;
 
     @ViewById(R.id.tv_question)
     TextView tv_question;
@@ -58,6 +55,12 @@ public class ChatActivity extends Activity{
 
     @AfterViews
     public void afterviews(){
+        if(getSupportActionBar() != null){
+            getSupportActionBar().setTitle(chatroom.getFriendName());
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+        }
+
         ref = FirebaseDatabase.getInstance().getReference().child(Constants.CHILD_CHATS).child(chatroom.getId()).child(Constants.CHILD_MESSAGES);
 
         tv_question.setText(chatroom.getTopic());
@@ -71,23 +74,25 @@ public class ChatActivity extends Activity{
                 map.put(Constants.KEY_HEX, "#f00");
                 map.put(Constants.KEY_MESSAGE, et_message.getText().toString());
                 ref.push().setValue(map);
+                et_message.setText("");
             }
         });
 
         adapter.setItems(messages);
         rv_feeds.setAdapter(adapter);
-
+        rv_feeds.setLayoutManager(new LinearLayoutManager(this));
 
         ref.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 HashMap map = (HashMap) dataSnapshot.getValue();
                 Message message = new Message();
+                message.setId(dataSnapshot.getKey());
                 message.setScreenName((String)map.get(Constants.KEY_NAME));
                 message.setHex((String)map.get(Constants.KEY_HEX));
                 message.setMessage((String)map.get(Constants.KEY_MESSAGE));
                 messages.add(message);
-                adapter.notifyDataSetChanged();
+                adapter.notifyItemInserted(messages.size());
             }
 
             @Override
