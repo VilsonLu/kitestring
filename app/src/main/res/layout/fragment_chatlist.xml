@@ -9,8 +9,7 @@
         android:id="@+id/rv_chats"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/row_chat_item"
-        android:visibility="gone"/>
+        tools:listitem="@layout/row_chat_item"/>
 
     <ImageView
         android:id="@+id/iv_instruction"

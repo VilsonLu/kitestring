@@ -10,6 +10,7 @@ public class Chatroom implements Parcelable{
     private String friendName;
     private String topic;
     private ArrayList<String> characteristics;
+    public String messageId;
 
     public Chatroom() {
     }

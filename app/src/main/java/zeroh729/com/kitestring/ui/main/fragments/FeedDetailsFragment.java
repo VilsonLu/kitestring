@@ -58,7 +58,11 @@ public class FeedDetailsFragment extends Fragment {
                     feed.setImageUrl((String)map.get(Constants.KEY_IMAGE));
                 else
                     feed.setImageUrl("");
-                feeds.add(feed);
+                if(dataSnapshot.getKey().contains("id")) {
+                    feeds.add(0,feed);
+                }else{
+                    feeds.add(feeds.size(), feed);
+                }
                 adapter.notifyDataSetChanged();
             }
 
