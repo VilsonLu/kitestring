@@ -59,7 +59,7 @@ public class ChatGreetingActivity extends BaseActivity {
 
                 for(DataSnapshot value : dataSnapshot.getChildren()){
 //                    if(i == random){
-                    if(value.getKey().equals("s0WTYQwctHhQYWyK1NsZ7ARaMyl1")){
+                    if(value.getKey().equals("VQ0VkM1icveXOtMt0K3NMhZBvEa2")){
                         HashMap map = (HashMap) value.getValue();
                         randomUser = new User();
                         randomUser.setId(value.getKey());
@@ -105,7 +105,7 @@ public class ChatGreetingActivity extends BaseActivity {
                         j--;
                     }
                 }
-                tv_greeting.setText("What do you think of " + randomUser.getUsername() + " :\n" + userAttrbs.get(0).toString() + "\n" + userAttrbs.get(1).toString() + "\n" + userAttrbs.get(2).toString());
+                tv_greeting.setText("Have you met a:" + userAttrbs.get(0).toString() + ",\n" + userAttrbs.get(1).toString() + ",\n" + userAttrbs.get(2).toString() + "?\n\n Don't worry, we'll be connecting you with " + randomUser.getUsername() + "!");
 
             }
 

@@ -24,7 +24,8 @@
             android:label="Home">
         </activity>
 
-        <activity android:name=".ui.main.activities.ChatGreetingActivity_"></activity>
+        <activity android:name=".ui.main.activities.ChatGreetingActivity_"
+            android:noHistory="true"></activity>
 
         <activity android:name=".ui.main.activities.AddFeedActivity_"></activity>
 
