@@ -89,14 +89,13 @@ public class LoginActivity extends BaseActivity {
         tv_switch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                isLogin = !isLogin;
                 if(isLogin){
-                    isLogin = false;
                     btn_login_register.setImageResource(R.drawable.btn_signin);
-                    tv_switch.setText("Already have an account?");
-                } else {
-                    isLogin = true;
-                    btn_login_register.setImageResource(R.drawable.register);
                     tv_switch.setText("Don't have an account yet?");
+                } else {
+                    btn_login_register.setImageResource(R.drawable.register);
+                    tv_switch.setText("Already have an account?");
                 }
 
             }
