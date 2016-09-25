@@ -5,6 +5,15 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import zeroh729.com.kitestring.Constants;
+import zeroh729.com.kitestring.KiteString;
+import zeroh729.com.kitestring.KiteString_;
 import zeroh729.com.kitestring.R;
 import zeroh729.com.kitestring.presenters.DataListPresenter;
 import zeroh729.com.kitestring.ui.base.BaseActivity;
@@ -14,6 +23,8 @@ import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.EBean;
 import org.androidannotations.annotations.ViewById;
+
+import java.util.HashMap;
 
 
 @EActivity(R.layout.activity_main)
@@ -39,6 +50,20 @@ public class MainActivity extends BaseActivity implements DataListPresenter.Scre
         viewpager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewpager);
         setupTabIcons();
+
+        FirebaseDatabase.getInstance().getReference().child(Constants.CHILD_USER).child(FirebaseAuth.getInstance().getCurrentUser().getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                HashMap map = (HashMap)dataSnapshot.getValue();
+                KiteString_.getInstance().user.setUsername((String)map.get(Constants.KEY_NAME));
+                KiteString_.getInstance().user.setHex((String)map.get(Constants.KEY_HEX));
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
     }
 
     private void setupTabIcons() {

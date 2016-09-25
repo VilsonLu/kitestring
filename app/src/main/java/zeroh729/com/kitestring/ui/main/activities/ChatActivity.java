@@ -7,6 +7,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -23,6 +24,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import zeroh729.com.kitestring.Constants;
+import zeroh729.com.kitestring.KiteString_;
 import zeroh729.com.kitestring.R;
 import zeroh729.com.kitestring.data.model.Chatroom;
 import zeroh729.com.kitestring.data.model.Message;
@@ -69,9 +71,9 @@ public class ChatActivity extends BaseActivity{
             @Override
             public void onClick(View v) {
                 HashMap map = new HashMap();
-                map.put(Constants.KEY_ID, "0");
-                map.put(Constants.KEY_NAME, "Joyce");
-                map.put(Constants.KEY_HEX, "#f00");
+                map.put(Constants.KEY_ID, FirebaseAuth.getInstance().getCurrentUser().getUid());
+                map.put(Constants.KEY_NAME, KiteString_.getInstance().user.getUsername());
+                map.put(Constants.KEY_HEX, KiteString_.getInstance().user.getHex());
                 map.put(Constants.KEY_MESSAGE, et_message.getText().toString());
                 ref.push().setValue(map);
                 et_message.setText("");
