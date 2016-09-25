@@ -36,7 +36,7 @@
         android:id="@+id/btn_send"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:src="@drawable/common_full_open_on_phone"
+        android:src="@drawable/send"
         android:background="?selectableItemBackground"
         android:padding="4dp"
         android:layout_alignParentBottom="true"

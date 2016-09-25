@@ -24,7 +24,7 @@
                 android:layout_below="@id/iv_image"
                 android:text="Headline"
                 style="@style/TextAppearance.AppCompat.Title"
-                android:layout_marginTop="@dimen/padding_content"
+                android:layout_marginTop="52dp"
                 android:layout_marginLeft="@dimen/padding_content"
                 android:layout_marginRight="@dimen/padding_content"
                 android:paddingLeft="@dimen/padding_content"

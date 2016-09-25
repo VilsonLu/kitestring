@@ -81,7 +81,7 @@ public class ChatGreetingActivity extends BaseActivity {
                     String attr = "";
                     switch (random1){
                         case 0:
-                            attr = randomUser.getAge() + " yrs old";
+                            attr = randomUser.getAge() + " years old";
                             break;
                         case 1:
                             attr = randomUser.getNationality();
@@ -105,7 +105,7 @@ public class ChatGreetingActivity extends BaseActivity {
                         j--;
                     }
                 }
-                tv_greeting.setText("What do you think of " + randomUser.getUsername() + " :" +userAttrbs.toString());
+                tv_greeting.setText("What do you think of " + randomUser.getUsername() + " :\n" + userAttrbs.get(0).toString() + "\n" + userAttrbs.get(1).toString() + "\n" + userAttrbs.get(2).toString());
 
             }
 
