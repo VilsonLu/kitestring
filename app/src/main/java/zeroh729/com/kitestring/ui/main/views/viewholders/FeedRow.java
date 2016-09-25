@@ -49,7 +49,11 @@ public class FeedRow extends CardView {
     }
 
     public void bind(final Feed feed, final FeedClickListener listener){
-        Glide.with(getContext()).load(feed.getImageUrl()).into(iv_image);
+        if(feed.getImageUrl().isEmpty()){
+            iv_image.setVisibility(View.GONE);
+        }else{
+            Glide.with(getContext()).load(feed.getImageUrl()).into(iv_image);
+        }
         tv_title.setText(feed.getTitle());
         tv_blurb.setText(feed.getDescription());
         btn_view_discusson.setOnClickListener(new OnClickListener() {

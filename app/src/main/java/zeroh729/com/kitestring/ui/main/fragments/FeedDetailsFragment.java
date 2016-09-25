@@ -54,7 +54,10 @@ public class FeedDetailsFragment extends Fragment {
                 feed.setBlurb((String)map.get(Constants.KEY_BLURB));
                 feed.setDescription((String)map.get(Constants.KEY_DESCRIPTION));
                 feed.setTitle((String)map.get(Constants.KEY_TITLE));
-                feed.setImageUrl((String)map.get(Constants.KEY_IMAGE));
+                if(map.containsKey(Constants.KEY_IMAGE))
+                    feed.setImageUrl((String)map.get(Constants.KEY_IMAGE));
+                else
+                    feed.setImageUrl("");
                 feeds.add(feed);
                 adapter.notifyDataSetChanged();
             }

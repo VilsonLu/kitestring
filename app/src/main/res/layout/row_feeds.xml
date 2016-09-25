@@ -45,7 +45,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/padding_content"
                 android:layout_gravity="right"
-                android:text="View discussion (8)"
+                android:text="View discussion (4)"
                 style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"/>
         </LinearLayout>
     </android.support.v7.widget.CardView>

@@ -3,12 +3,15 @@ package zeroh729.com.kitestring.ui.main.activities;
 import android.app.Activity;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EActivity;
@@ -55,6 +58,17 @@ public class FeedDetailActivity extends BaseActivity {
 
     @AfterViews
     public void afterviews(){
+        if(getSupportActionBar() != null){
+            getSupportActionBar().setTitle(feed.getTitle());
+        }
+        if(feed.getImageUrl().isEmpty()){
+            iv_image.setVisibility(View.GONE);
+        }else{
+            Glide.with(this).load(feed.getImageUrl()).into(iv_image);
+        }
+        tv_title.setText(feed.getTitle());
+        tv_article.setText(feed.getDescription());
+
 
         PopulateCommentList();
         for(int i=0; i<commentArrayList.size(); i++){

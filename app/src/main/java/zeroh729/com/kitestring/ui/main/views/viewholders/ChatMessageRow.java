@@ -3,6 +3,7 @@ package zeroh729.com.kitestring.ui.main.views.viewholders;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.Gravity;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -16,7 +17,7 @@ import zeroh729.com.kitestring.R;
 import zeroh729.com.kitestring.data.model.Message;
 
 @EViewGroup(R.layout.row_chat_message)
-public class ChatMessageRow extends LinearLayout{
+public class ChatMessageRow extends FrameLayout{
     @ViewById(R.id.parent_view)
     LinearLayout parent_view;
 
@@ -36,7 +37,7 @@ public class ChatMessageRow extends LinearLayout{
     }
 
     public void bind(Message message){
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+        FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
         String userId = "0";
 
         if(FirebaseAuth.getInstance().getCurrentUser() != null)
@@ -46,7 +47,7 @@ public class ChatMessageRow extends LinearLayout{
             params.gravity = Gravity.RIGHT;
             parent_view.setBackgroundResource(R.drawable.bg_chat_user);
         }else{
-            params.gravity = Gravity.RIGHT;
+            params.gravity = Gravity.LEFT;
             parent_view.setBackgroundResource(R.drawable.bg_chat_other);
         }
         tv_message.setText(message.getMessage());
