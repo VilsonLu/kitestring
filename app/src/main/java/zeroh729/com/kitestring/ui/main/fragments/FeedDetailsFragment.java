@@ -3,6 +3,7 @@ package zeroh729.com.kitestring.ui.main.fragments;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
@@ -23,6 +24,7 @@ import java.util.HashMap;
 import zeroh729.com.kitestring.Constants;
 import zeroh729.com.kitestring.R;
 import zeroh729.com.kitestring.data.model.Feed;
+import zeroh729.com.kitestring.ui.main.activities.AddFeedActivity_;
 import zeroh729.com.kitestring.ui.main.adapters.FeedAdapter;
 
 @EFragment(R.layout.fragment_feeds)
@@ -45,6 +47,12 @@ public class FeedDetailsFragment extends Fragment {
         rv_feeds.setLayoutManager(new LinearLayoutManager(getContext()));
         rv_feeds.setAdapter(adapter);
 
+        btn_add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AddFeedActivity_.intent(getContext()).start();
+            }
+        });
 
         FirebaseDatabase.getInstance().getReference().child(Constants.CHILD_FEEDS).addChildEventListener(new ChildEventListener() {
             @Override
