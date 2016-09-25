@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -36,7 +37,7 @@ public class LoginActivity extends BaseActivity {
     EditText et_password;
 
     @ViewById(R.id.btn_login_register)
-    Button btn_login_register;
+    ImageButton btn_login_register;
 
     @ViewById(R.id.tv_switch)
     TextView tv_switch;
@@ -90,11 +91,11 @@ public class LoginActivity extends BaseActivity {
             public void onClick(View v) {
                 if(isLogin){
                     isLogin = false;
-                    btn_login_register.setText("Register");
+                    btn_login_register.setImageResource(R.drawable.btn_signin);
                     tv_switch.setText("Already have an account?");
                 } else {
                     isLogin = true;
-                    btn_login_register.setText("Login");
+                    btn_login_register.setImageResource(R.drawable.register);
                     tv_switch.setText("Don't have an account yet?");
                 }
 

@@ -14,6 +14,7 @@ import org.androidannotations.annotations.EFragment;
 import org.androidannotations.annotations.ViewById;
 
 import zeroh729.com.kitestring.R;
+import zeroh729.com.kitestring.ui.main.activities.AddFeedActivity_;
 import zeroh729.com.kitestring.ui.main.activities.FeedDetailActivity;
 import zeroh729.com.kitestring.ui.main.activities.FeedDetailActivity_;
 
@@ -32,7 +33,7 @@ public class FeedDetailsFragment extends Fragment {
         btn_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FeedDetailActivity_.intent(getContext()).start();
+                AddFeedActivity_.intent(getContext()).start();
             }
         });
 

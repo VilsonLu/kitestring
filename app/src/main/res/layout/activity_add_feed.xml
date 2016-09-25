@@ -28,6 +28,7 @@
         android:layout_gravity="bottom"
         android:layout_margin="@dimen/padding_content"
         android:layout_alignParentBottom="true"
+        android:src="@drawable/newbutton"
         android:layout_centerHorizontal="true"/>
 
 </RelativeLayout>

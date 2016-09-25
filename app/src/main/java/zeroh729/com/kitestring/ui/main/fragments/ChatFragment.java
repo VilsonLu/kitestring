@@ -39,7 +39,7 @@ public class ChatFragment extends Fragment{
         btn_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ChatActivity_.intent(getContext()).extra("chatroom", chatrooms.get(0)).start();
+                ChatActivity_.intent(getContext()).start();
             }
         });
     }

@@ -75,8 +75,8 @@ public class AddFeedActivity extends BaseActivity {
 
     private HashMap<String, String> retrieveFields(){
         HashMap<String,String> fields = new HashMap<>();
-        fields.put(Constants.KEY_TITLE, et_content.toString());
-        fields.put(Constants.KEY_DESCRIPTION, et_description.toString());
+        fields.put(Constants.KEY_TITLE, et_content.getText().toString());
+        fields.put(Constants.KEY_DESCRIPTION, et_description.getText().toString());
         return fields;
     }
 
